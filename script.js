@@ -1,16 +1,15 @@
 function toggleMode() {
   const html = document.documentElement;
-  const isLightMode = html.classList.toggle("light"); // aplica ou remove .light em <html>
+  const isLightMode = html.classList.toggle("light");
 
-  // Atualiza imagem do perfil
+  // Atualiza a imagem do perfil
   const img = document.querySelector("#profile img");
-  if (isLightMode) {
-    img.setAttribute("src", "./assets/avatar-light.png");
-  } else {
-    img.setAttribute("src", "./assets/avatar.png");
-  }
+  img.setAttribute("src", isLightMode ? "./assets/avatar-light.png" : "./assets/avatar.png");
 
-  // Esconde tooltips ao trocar tema
+  // Salva a preferência no localStorage
+  localStorage.setItem("theme", isLightMode ? "light" : "dark");
+
+  // Esconde os tooltips
   hideTooltips();
 }
 
@@ -52,6 +51,20 @@ function hideTooltips() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Restaura o tema salvo no localStorage
+  const savedTheme = localStorage.getItem("theme");
+  const html = document.documentElement;
+  const img = document.querySelector("#profile img");
+
+  if (savedTheme === "light") {
+    html.classList.add("light");
+    img.setAttribute("src", "./assets/avatar-light.png");
+  } else {
+    html.classList.remove("light");
+    img.setAttribute("src", "./assets/avatar.png");
+  }
+
+  // Adiciona evento ao botão de troca de tema
   const switchButton = document.querySelector("#switch button");
   if (switchButton) {
     switchButton.addEventListener("click", toggleMode);

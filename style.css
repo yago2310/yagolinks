@@ -71,10 +71,12 @@ body * {
 
 #profile img {
   width: 112px;
+  height: 112px;
+  margin: 0 auto;
   display: block;
   border-radius: 50%;
   object-fit: cover;
-  background-color: transparent; /* garante que não tenha bg estranho */
+  background-color: transparent;
 }
 
 #profile p {

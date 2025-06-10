@@ -72,8 +72,8 @@ body * {
 #profile img {
   width: 112px;
   height: 112px;
-  margin: 0 auto;
   display: block;
+  margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
   background-color: transparent;

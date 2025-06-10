@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YagoLinks</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="profile">
+        <img
+          src="./assets/Avatar.png"
+          alt="Foto de Yago Lucas olhando para frente, sorrindo, usando blusa preta e com um fundo ao ar livre."
+        />
+        <p>@yagolucasds</p>
+      </div>
+
+      <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+      </div>
+
+      <ul>
+        <li>
+          <a href="http://lattes.cnpq.br/6882080854550102" target="_blank"
+            >Acesse meu Currículo Lattes</a
+          >
+        </li>
+
+        <li>
+          <a href="#" target="_blank">Me Conheça melhor</a>
+        </li>
+
+        <li>
+          <a href="#" target="_blank">Veja meu portfólio</a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.linkedin.com/in/yago-lucas-1397a91b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            >Me siga no Linkedin</a
+          >
+        </li>
+      </ul>
+
+      <div id="social-links">
+        <a
+          href="https://www.linkedin.com/in/yago-lucas-1397a91b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          target="_blank"
+        >
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="https://www.instagram.com/yagolucasds/" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <div id="email-container" onclick="copyEmail()">
+          <ion-icon name="at-circle-outline"></ion-icon>
+          <span id="email-tooltip">Clique para copiar</span>
+        </div>        
+        </a>
+        <div id="phone-container" onclick="copyPhone()">
+          <ion-icon name="call-outline"></ion-icon>
+          <span id="phone-tooltip">Clique para copiar</span>
+        </div>        
+        </a>
+      </div>
+
+      <footer>
+        Feito com ♥ por
+        <a href="https://www.instagram.com/ja.milak/" target="_blank"
+          >@ja.milak</a
+        >, com base no modelo da
+        <a href="https://rocketseat.com.br/" target="_blank">Rocketseat</a>.
+      </footer>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

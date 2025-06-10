@@ -4,7 +4,7 @@ function toggleMode() {
 
   // Atualiza a imagem do perfil
   const img = document.querySelector("#profile img");
-  img.setAttribute("src", isLightMode ? "./assets/avatar-light.png" : "./assets/Avatar.png");
+  img.setAttribute("src", isLightMode ? "./assets/avatar-light.png" : "./assets/avatar.png");
 
   // Salva a preferência no localStorage
   localStorage.setItem("theme", isLightMode ? "light" : "dark");

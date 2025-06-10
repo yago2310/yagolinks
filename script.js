@@ -34,3 +34,18 @@ function copyPhone() {
     }, 2000)
   })
 }
+
+const switchButton = document.querySelector('#switch button');
+const emailTooltip = document.querySelector('#email-tooltip');
+const phoneTooltip = document.querySelector('#phone-tooltip');
+
+switchButton.addEventListener('click', () => {
+  // Alterna a classe light no body
+  document.body.classList.toggle('light');
+
+  // Esconde os tooltips ao trocar o tema
+  emailTooltip.style.visibility = 'hidden';
+  emailTooltip.style.opacity = 0;
+  phoneTooltip.style.visibility = 'hidden';
+  phoneTooltip.style.opacity = 0;
+});

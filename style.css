@@ -257,3 +257,25 @@ footer {
   visibility: visible;
   opacity: 1;
 }
+
+#container {
+  max-width: 360px;
+  width: 100%;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/* Tooltip sempre escondido por padrão */
+#email-tooltip,
+#phone-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip aparece só no hover */
+#email-container:hover #email-tooltip,
+#phone-container:hover #phone-tooltip {
+  visibility: visible;
+  opacity: 1;
+}

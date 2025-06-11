@@ -197,7 +197,7 @@ footer {
 
 #email-container i,
 #phone-container i {
-  font-size: 24px;
+  font-size: 32px; /* Aumente para igualar ao tamanho visual dos outros ícones */
 }
 
 #email-container:hover,

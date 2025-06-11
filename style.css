@@ -183,6 +183,7 @@ footer {
 /* EMAIL & PHONE */
 #email-container,
 #phone-container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

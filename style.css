@@ -182,14 +182,16 @@ footer {
 /* EMAIL & PHONE */
 #email-container,
 #phone-container {
-  position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: var(--surface-color);
+  cursor: pointer;
   transition: background 0.2s;
+  position: relative;
 }
 
 #email-container:hover,
@@ -207,7 +209,7 @@ footer {
   border-radius: 6px;
   padding: 4px 8px;
   position: absolute;
-  bottom: 125%;
+  bottom: 110%; /* acima do botão */
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.3s;

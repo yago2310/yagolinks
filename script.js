@@ -2,15 +2,19 @@ function toggleMode() {
   const html = document.documentElement;
   const isLightMode = html.classList.toggle("light");
 
-  // Atualiza a imagem do perfil
-  const img = document.querySelector("#profile img");
-  img.setAttribute("src", isLightMode ? "./assets/avatar-light.png" : "./assets/avatar.png");
+  // Aguarda o próximo frame para aplicar mudanças visuais
+  requestAnimationFrame(() => {
+    const img = document.querySelector("#profile img");
+    if (img) {
+      img.setAttribute("src", isLightMode ? "./assets/avatar-light.png" : "./assets/avatar.png");
+      img.onerror = () => {
+        img.setAttribute("src", "./assets/avatar.png");
+      };
+    }
 
-  // Salva a preferência no localStorage
-  localStorage.setItem("theme", isLightMode ? "light" : "dark");
-
-  // Esconde os tooltips
-  hideTooltips();
+    localStorage.setItem("theme", isLightMode ? "light" : "dark");
+    hideTooltips();
+  });
 }
 
 function copyEmail() {
@@ -51,20 +55,25 @@ function hideTooltips() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Restaura o tema salvo no localStorage
-  const savedTheme = localStorage.getItem("theme");
   const html = document.documentElement;
   const img = document.querySelector("#profile img");
+  const savedTheme = localStorage.getItem("theme");
 
   if (savedTheme === "light") {
     html.classList.add("light");
-    img.setAttribute("src", "./assets/avatar-light.png");
-  } else {
+    img?.setAttribute("src", "./assets/avatar-light.png");
+  } else if (savedTheme === "dark") {
     html.classList.remove("light");
-    img.setAttribute("src", "./assets/avatar.png");
+    img?.setAttribute("src", "./assets/avatar.png");
+  } else {
+    // Detecta preferência do sistema se não tiver nada salvo
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (prefersLight) {
+      html.classList.add("light");
+      img?.setAttribute("src", "./assets/avatar-light.png");
+    }
   }
 
-  // Adiciona evento ao botão de troca de tema
   const switchButton = document.querySelector("#switch button");
   if (switchButton) {
     switchButton.addEventListener("click", toggleMode);

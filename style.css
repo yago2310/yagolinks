@@ -1,4 +1,4 @@
-* {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -54,14 +54,11 @@ body {
 body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
-
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 #container {
-  width: 100%;
   max-width: 360px;
+  width: 100%;
   margin: 56px auto 0;
   padding: 0 16px;
   box-sizing: border-box;
@@ -98,7 +95,6 @@ body * {
 
   margin: 4px auto;
 }
-
 #switch button {
   width: 32px;
   height: 32px;
@@ -292,3 +288,23 @@ footer {
   opacity: 1;
 }
 
+@media (max-width: 480px) {
+  #container {
+    padding: 0 12px;
+    margin-top: 32px;
+  }
+
+  #profile img {
+    width: 96px;
+    height: 96px;
+  }
+
+  ul li a {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  #switch {
+    margin-top: 8px;
+  }
+}

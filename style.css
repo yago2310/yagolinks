@@ -33,7 +33,7 @@
     --bg-url: url(./assets/bg-desktop.jpg);
   }
 
-  .light {
+  :root.light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }

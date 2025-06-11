@@ -54,11 +54,14 @@ body {
 body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
+
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 #container {
-  max-width: 360px;
   width: 100%;
+  max-width: 360px;
   margin: 56px auto 0;
   padding: 0 16px;
   box-sizing: border-box;
@@ -95,6 +98,7 @@ body * {
 
   margin: 4px auto;
 }
+
 #switch button {
   width: 32px;
   height: 32px;
@@ -288,23 +292,34 @@ footer {
   opacity: 1;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
   #container {
     padding: 0 12px;
     margin-top: 32px;
   }
 
   #profile img {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
   }
 
   ul li a {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 10px 12px;
+    font-size: 13px;
   }
 
   #switch {
     margin-top: 8px;
+    scale: 0.9;
+  }
+
+  #social-links {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #email-container,
+  #phone-container {
+    padding: 4px;
   }
 }

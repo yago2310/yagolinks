@@ -192,6 +192,7 @@ footer {
   cursor: pointer;
   transition: background 0.2s;
   position: relative;
+  padding: 16px; /* garante mesmo preenchimento dos sociais */
 }
 
 #email-container:hover,

@@ -13,7 +13,7 @@
   --surface-color-hover: rgba(255, 255, 255, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/moon-stars.svg);
-  --switch-button-bg: white;
+  --switch-button-bg: white; /* deixa fixo pra todos os modos */
 }
 
 .light {

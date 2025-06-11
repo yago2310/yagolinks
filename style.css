@@ -1,4 +1,4 @@
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,7 +14,6 @@
   --switch-bg-url: url(./assets/moon-stars.svg);
 }
 
-/* Modo claro */
 .light {
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
@@ -25,47 +24,40 @@
   --switch-bg-url: url(./assets/sun.svg);
 }
 
-/* Substitui a imagem de fundo em telas maiores (modo escuro) */
+/* Desktop background */
 @media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
   }
-}
 
-/* Substitui a imagem de fundo em telas maiores (modo claro) */
-@media (min-width: 700px) {
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
 
+/* BODY */
 body {
-  /*
-  background-image: url(./assets/bg-desktop.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  */
-
-  /*background: color image repeat position/size*/
   background: var(--bg-url) no-repeat top center / cover;
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body * {
-  font-family: "Inter", sans-serif;
+  font-family: inherit;
   color: var(--text-color);
 }
 
+/* CONTAINER */
 #container {
   max-width: 360px;
   width: 100%;
   margin: 56px auto 0;
-  padding: 0 16px;
-  box-sizing: border-box;
+  padding: 0 24px;
 }
 
-/*profile */
-
+/* PROFILE */
 #profile {
   text-align: center;
   padding: 24px;
@@ -87,21 +79,19 @@ body * {
   margin-top: 8px;
 }
 
-/*switch */
-
+/* SWITCH */
 #switch {
   position: relative;
   width: 64px;
-
   margin: 4px auto;
 }
+
 #switch button {
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
-
   position: absolute;
   top: 50%;
   left: 0;
@@ -125,14 +115,12 @@ body * {
   border-radius: 9999px;
 }
 
-/*links */
+/* LINKS */
 ul {
   list-style: none;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
-
   padding: 24px 0;
 }
 
@@ -140,38 +128,31 @@ ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 16px 24px;
-
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
-
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
   text-decoration: none;
   font-weight: 400;
-
   transition: all 0.2s ease-in-out;
 }
 
-/* pseudo selector */
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
 }
 
-/*social links */
+/* SOCIAL LINKS */
 #social-links {
   display: flex;
   justify-content: center;
-
+  flex-wrap: wrap;
+  gap: 8px;
   padding: 24px 0;
-
   font-size: 24px;
 }
 
@@ -180,7 +161,6 @@ ul li a:hover {
   align-items: center;
   justify-content: center;
   padding: 16px;
-
   transition: background 0.2s;
   border-radius: 50%;
 }
@@ -189,47 +169,14 @@ ul li a:hover {
   background: var(--highlight-color);
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 24px 0;
 }
 
-#email-container {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-}
-
-#email-container:hover {
-  background: var(--highlight-color);
-}
-
-#email-tooltip {
-  visibility: hidden;
-  opacity: 0;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 4px 8px;
-  position: absolute;
-  bottom: 125%; /* acima do ícone */
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.3s;
-  font-size: 12px;
-  white-space: nowrap;
-  z-index: 10;
-}
-
-#email-container:hover #email-tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
+/* EMAIL & PHONE */
+#email-container,
 #phone-container {
   position: relative;
   display: inline-flex;
@@ -237,12 +184,15 @@ footer {
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
+  transition: background 0.2s;
 }
 
+#email-container:hover,
 #phone-container:hover {
   background: var(--highlight-color);
 }
 
+#email-tooltip,
 #phone-tooltip {
   visibility: hidden;
   opacity: 0;
@@ -261,36 +211,16 @@ footer {
   z-index: 10;
 }
 
-#phone-container:hover #phone-tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-#container {
-  max-width: 360px;
-  width: 100%;
-  margin: 56px auto 0px;
-  padding: 0 24px;
-}
-
-/* Tooltip sempre escondido por padrão */
-#email-tooltip,
-#phone-tooltip {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-/* Tooltip aparece só no hover */
 #email-container:hover #email-tooltip,
 #phone-container:hover #phone-tooltip {
   visibility: visible;
   opacity: 1;
 }
 
+/* MOBILE RESPONSIVO */
 @media (max-width: 480px) {
   #container {
-    padding: 0 12px;
+    padding: 0 16px;
     margin-top: 32px;
   }
 
@@ -305,6 +235,6 @@ footer {
   }
 
   #switch {
-    margin-top: 8px;
+    margin: 8px auto;
   }
 }

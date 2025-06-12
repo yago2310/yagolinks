@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* VARIÁVEIS GLOBAIS */
+/* VARIÁVEIS */
 :root {
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
@@ -146,18 +146,6 @@ ul li a:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ÍCONES CIRCULARES (reaproveitado) */
-.circle-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-color);
-  transition: background 0.2s;
-}
-
 /* SOCIAL LINKS */
 #social-links {
   display: flex;
@@ -168,11 +156,22 @@ ul li a:hover {
   font-size: 24px;
 }
 
-#social-links a {
-  composes: circle-icon;
+#social-links a,
+#email-container,
+#phone-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  transition: background 0.2s;
 }
 
-#social-links a:hover {
+#social-links a:hover,
+#email-container:hover,
+#phone-container:hover {
   background: var(--highlight-color);
 }
 
@@ -182,10 +181,9 @@ footer {
   padding: 24px 0;
 }
 
-/* EMAIL & PHONE */
+/* ICONES DE EMAIL/TELEFONE */
 #email-container,
 #phone-container {
-  composes: circle-icon;
   position: relative;
   cursor: pointer;
   font-size: 24px;
@@ -194,11 +192,6 @@ footer {
 #email-container i,
 #phone-container i {
   font-size: 32px;
-}
-
-#email-container:hover,
-#phone-container:hover {
-  background: var(--highlight-color);
 }
 
 /* TOOLTIP */

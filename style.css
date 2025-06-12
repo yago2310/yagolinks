@@ -1,10 +1,11 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Variáveis globais */
+/* VARIÁVEIS GLOBAIS */
 :root {
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
@@ -13,7 +14,7 @@
   --surface-color-hover: rgba(255, 255, 255, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/moon-stars.svg);
-  --switch-button-bg: white; /* deixa fixo pra todos os modos */
+  --switch-button-bg: white;
 }
 
 .light {
@@ -24,16 +25,15 @@
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/sun.svg);
-  --switch-button-bg: white;
 }
 
-/* Ajuste do fundo para telas maiores */
+/* MEDIA QUERIES */
 @media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
   }
 
-  :root.light {
+  .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
@@ -41,10 +41,9 @@
 /* BODY */
 body {
   background: var(--bg-url) no-repeat top center / cover;
-  font-family: "Inter", sans-serif;
+  height: 100vh;
+  font-family: inherit;
   color: var(--text-color);
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 body * {
@@ -54,7 +53,7 @@ body * {
 
 /* CONTAINER */
 #container {
-  max-width: 360px;
+  max-width: 580px;
   width: 100%;
   margin: 56px auto 0;
   padding: 0 24px;
@@ -103,8 +102,8 @@ body * {
 }
 
 .light #switch button {
-  right: 0;
   left: initial;
+  right: 0;
 }
 
 #switch span {
@@ -113,7 +112,6 @@ body * {
   height: 24px;
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
-  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
@@ -136,7 +134,6 @@ ul li a {
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   text-decoration: none;
   font-weight: 400;
   transition: all 0.2s ease-in-out;
@@ -147,6 +144,18 @@ ul li a:hover {
   border: 1.5px solid var(--text-color);
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ÍCONES CIRCULARES (reaproveitado) */
+.circle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface-color);
+  transition: background 0.2s;
 }
 
 /* SOCIAL LINKS */
@@ -160,14 +169,7 @@ ul li a:hover {
 }
 
 #social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-color);
-  transition: background 0.2s;
+  composes: circle-icon;
 }
 
 #social-links a:hover {
@@ -183,22 +185,15 @@ footer {
 /* EMAIL & PHONE */
 #email-container,
 #phone-container {
+  composes: circle-icon;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-color);
   cursor: pointer;
-  transition: background 0.2s;
   font-size: 24px;
 }
 
 #email-container i,
 #phone-container i {
-  font-size: 32px; /* Aumente para igualar ao tamanho visual dos outros ícones */
+  font-size: 32px;
 }
 
 #email-container:hover,
@@ -206,6 +201,7 @@ footer {
   background: var(--highlight-color);
 }
 
+/* TOOLTIP */
 #email-tooltip,
 #phone-tooltip {
   visibility: hidden;
@@ -216,7 +212,7 @@ footer {
   border-radius: 6px;
   padding: 4px 8px;
   position: absolute;
-  bottom: 110%; /* acima do botão */
+  bottom: 110%;
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.3s;
@@ -231,7 +227,7 @@ footer {
   opacity: 1;
 }
 
-/* MOBILE RESPONSIVO */
+/* RESPONSIVO MOBILE */
 @media (max-width: 480px) {
   #container {
     padding: 0 16px;

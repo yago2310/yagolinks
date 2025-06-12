@@ -27,21 +27,24 @@
   --switch-button-bg: white;
 }
 
+/* Ajuste do fundo para telas maiores */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-desktop,jpg); /* <- vírgula errada */
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
 
-  .light {
-    --gb-url: url(./assets/bg-desktop-light.jpg); /* <- gb-url está errado */
+  :root.light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
-}
 }
 
 /* BODY */
 body {
   background: var(--bg-url) no-repeat top center / cover;
-  height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body * {
@@ -51,7 +54,7 @@ body * {
 
 /* CONTAINER */
 #container {
-  max-width: 580px;
+  max-width: 360px;
   width: 100%;
   margin: 56px auto 0;
   padding: 0 24px;
